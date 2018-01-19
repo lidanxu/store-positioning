@@ -55,9 +55,9 @@ x * x<font size=1>test </font>
 
 正因为这两个不同之处，影响函数比最近邻居更准确地捕捉模型训练的效果.
 
-![Figure1](https://github.com/lidanxu/store-positioning/blob/master/images/Figure1.png)
+Figure1![Figure1](https://github.com/lidanxu/store-positioning/blob/master/images/Figure1.png)
 
-figure1中(a)图分析影响函数的组成元素：`Hessian逆矩阵`和 `training ross` L,比较元素丢失后对影响函数的影响，表明二者缺一不可。
+Figure1中(a)图分析影响函数的组成元素：`Hessian逆矩阵`和 `training ross` L,比较元素丢失后对影响函数的影响，表明二者缺一不可。
 
 (a) 左图表示如果缺失元素train loss将过大估计很多训练样本点的影响力；中间图表明如果缺失H逆矩阵，则所有正例数据均有利，反例数据均有害。右图两个元素都丢失，则影响函数相当于是放缩后的欧几里得内积，将丧失准确捕捉影响力的能力，而且散点图偏离对角线较远。
 
@@ -108,7 +108,7 @@ figure1中(a)图分析影响函数的组成元素：`Hessian逆矩阵`和 `train
 1. 模型参数θ通过最小化经验风险empirical risk计算得到
 2. empirical risk是二阶可微且严格凸函数。
 
-实验论证了influence function与留一法重训练非常相近。如图![Feature2](https://github.com/lidanxu/store-positioning/blob/master/images/Feature2.png)
+实验论证了influence function与留一法重训练非常相近。如图Feature2![Feature2](https://github.com/lidanxu/store-positioning/blob/master/images/Feature2.png)
 
 其中左图使用CG计算Stest;中间图使用stochastic approximation计算Stest;右图使用CNN算法,CNN不凸，不收敛，但是增加阻尼项后，影响函数估计的结果和真实值还是高度相近的（Pearson's R=0.86）。
 
@@ -127,7 +127,7 @@ figure1中(a)图分析影响函数的组成元素：`Hessian逆矩阵`和 `train
 
 论文中举的例子是svm算法，这个算法的损失函数是`Hinge(s) = max(0,1-s)`,是不可微的。类似的还有神经网络中的ReLUs。
 
-通过将不可微的svm损失函数`Hinge(s)`平滑化得到`SmoothHinge(s,t)`,利用`SmoothHinge`计算`Iup,loss`可以很好地估计真实代价变化。如图![Feature3](https://github.com/lidanxu/store-positioning/blob/master/images/Feature3.png)
+通过将不可微的svm损失函数`Hinge(s)`平滑化得到`SmoothHinge(s,t)`,利用`SmoothHinge`计算`Iup,loss`可以很好地估计真实代价变化。如图Feature3![Feature3](https://github.com/lidanxu/store-positioning/blob/master/images/Feature3.png)
 
 (a)图是当t取值不同时，`SmoothHinge(s)`的变化情况，其中t=0对应`Hinge`,且`t=0.001`和`t=0`图形重叠；
 
