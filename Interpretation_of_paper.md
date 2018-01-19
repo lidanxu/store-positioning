@@ -112,7 +112,8 @@ figure1中(a)图分析影响函数的组成元素：`Hessian逆矩阵`和 `train
 
 其中左图使用CG计算Stest;中间图使用stochastic approximation计算Stest;右图使用CNN算法,CNN不凸，不收敛，但是增加阻尼项后，影响函数估计的结果和真实值还是高度相近的（Pearson's R=0.86）。
 
-## 非凸性和非收敛性
+## Non-convexity and non-convergence 
+(非凸性和非收敛性)
 
 当不满足凸约束条件时，影响函数依然可以提供有价值的信息。论文提出的方法是构造凸二次近似，在损失函数中增加阻尼项。这相当于在损失函数中添加L2 regularization.如图Feature2右图所示。
 
