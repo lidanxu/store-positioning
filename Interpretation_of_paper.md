@@ -137,7 +137,7 @@ Figure1中(a)图分析影响函数的组成元素：`Hessian逆矩阵`和 `train
 ## a. Understanding model behavior
 influence function揭示什么样的样本数据对模型影响大，有助于了解模型行为。
 
-比如实验表明rbf svm模型:离测试数据越近的训练数据影响越大，而Inception network 没有这一特点；
+比如实验表明rbf svm模型:离测试数据越近的训练数据影响越大，而Inception network 没有这一特点；同时，对于RBF SVM而言正例训练数据对模型有正面影响，反例训练数据对模型有负面影响，因此训练RBF SVM模型时最好使用正例训练数据，对于Inception，正例、负例训练数据都有可能有正面或者负面影响，因此训练Inception模型需要同时考虑两种训练样本。
 
 Inception network提取数据中比较明显,独特的特征，而RBF SVM更多地是从图片表面的模式匹配。
 
